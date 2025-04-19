@@ -1,3 +1,4 @@
+// src/app/layout.jsx
 import './globals.css'
 import BottomNavbar from '@/components/BottomNavbar'
 import localFont from 'next/font/local'
@@ -50,7 +51,7 @@ export const metadata = {
   ]
 }
 
-export default async function RootLayout ({ children }) {
+export default async function RootLayout({ children }) {
   return (
     <html lang='es'>
       <head>
@@ -59,21 +60,20 @@ export default async function RootLayout ({ children }) {
         <meta name='generator' content={metadata.generator} />
         <link rel='manifest' href={metadata.manifest} />
         <meta name='keywords' content={metadata.keywords.join(', ')} />
-        <meta name='author' content='Adrián Pino' url='https://www.github.com/addreeh/' />
+        <meta name='author' content='PrasadBobby' url='https://www.github.com/prasadbobby/' />
         <meta name='viewport' content={metadata.viewport} />
         {metadata.icons.map(({ rel, url }, index) => (
           <link key={index} rel={rel} href={url} />
         ))}
       </head>
-      <body className={`${eina03.className} bg-bg-app min-h-[100dvh] max-h-[100dvh] flex flex-col`}>
-  <div className="mobile-container">
-    <main className='flex-1 flex flex-col gap-6 p-5 overflow-y-hidden relative'>
-      {children}
-    </main>
-    <BottomNavbar />
-  </div>
-</body>
-
+      <body className={eina03.className + ' bg-bg-app min-h-[100dvh] max-h-[100dvh] flex flex-col'}>
+        <div className="mobile-container">
+          <main className='flex-1 flex flex-col gap-6 p-5 overflow-y-hidden relative'>
+            {children}
+          </main>
+          <BottomNavbar />
+        </div>
+      </body>
     </html>
   )
 }
