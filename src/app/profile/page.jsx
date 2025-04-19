@@ -5,7 +5,13 @@ import Image from 'next/image'
 
 export default async function Page () {
   const session = await auth()
-  const data = await getUserProgressLastWeekAndThreeWeeksBefore(session?.user?.email)
+  let data = { lastWeek: [], threeWeeksAgo: [] }
+  try {
+    data = await getUserProgressLastWeekAndThreeWeeksBefore(session?.user?.email)
+  } catch (error) {
+    console.error('Failed to load user progress data:', error)
+  }
+
   const totalProgress = data.lastWeek.concat(data.threeWeeksAgo)
 
   return (

@@ -181,10 +181,14 @@ export async function getUserProgressLastWeekAndThreeWeeksBefore (email) {
       .filter(entry => new Date(entry.date) >= threeWeeksAgoSunday && new Date(entry.date) < previousSunday)
       .map(formatEntry)
 
-    return { lastWeek, threeWeeksAgo }
+      return { 
+        lastWeek: lastWeek || [], 
+        threeWeeksAgo: threeWeeksAgo || [] 
+      }
+  
   } catch (error) {
     console.error('Error in getUserProgressLastWeekAndThreeWeeksBefore:', error)
-    throw new Error('Failed to fetch user progress data')
+    return { lastWeek: [], threeWeeksAgo: [] }
   }
 }
 

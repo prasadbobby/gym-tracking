@@ -46,23 +46,23 @@
 
 /* Mobile-only styles */
 @media (min-width: 768px) {
-  body::before {
-    content: "This app is designed for mobile devices only. Please view on a smaller screen.";
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #2d2d2d;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    text-align: center;
-    font-size: 18px;
-    color: white;
+  body {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  main {
+    padding: 20px 40px;
+  }
+  
+  /* Create a container for mobile view on desktop */
+  .mobile-container {
+    max-width: 480px;
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    height: 100vh;
+    overflow: hidden;
   }
 }
 
